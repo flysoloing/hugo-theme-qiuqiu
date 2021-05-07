@@ -1,0 +1,13 @@
+{{ define "main" }}
+<h1>标签：{{ .Data.Term }}</h1>
+{{ range .Data.Pages.GroupByDate "2006" }}
+<p>{{ .Key }}</p>
+<ul>
+    {{ range .Pages }}
+    <li>
+        <a href="{{ .Permalink }}">{{ .Title }} | {{ .Date.Format "01-02"}}</a>
+    </li>
+    {{ end }}
+</ul>
+{{ end }}
+{{ end }}

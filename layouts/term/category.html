@@ -1,0 +1,18 @@
+{{ define "main" }}
+<h1>分类：{{ .Data.Term }}</h1>
+{{ range .Data.Pages.GroupByDate "2006" }}
+<p>{{ .Key }}</p>
+<ul>
+    {{ range .Pages | first 1 }}
+    <li>
+        <a href="{{ .Permalink }}">{{ .Title }} | {{ .Date.Format "01-02"}}</a>
+    </li>
+    {{ end }}
+    {{ if gt (len .Pages) 1 }}
+    <li>
+        <a href="{{ . | urlize }}">更多</a>
+    </li>
+    {{ end }}
+</ul>
+{{ end }}
+{{ end }}

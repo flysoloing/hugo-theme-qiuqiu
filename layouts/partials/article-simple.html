@@ -1,0 +1,48 @@
+<!-- article style 2 -->
+{{ define "article-simple" }}
+{{ range where .Site.RegularPages "Section" "posts" }}
+<div class="block">
+    <div class="card">
+        <div class="card-content">
+            <div class="content">
+                <h1 class="title"><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
+                <div class="block">
+                    <span class="icon-text">
+                        <span class="icon">
+                            <i class="far fa-calendar-alt"></i>
+                        </span>
+                        <span>{{ .Date.Format "2006-01-02" }}</span>
+                    </span>
+<!--                    <span class="icon-text">-->
+<!--                        <span class="icon">-->
+<!--                            <i class="fas fa-tags"></i>-->
+<!--                        </span>-->
+<!--                        <span>标签</span>-->
+<!--                    </span>-->
+<!--                    <span class="icon-text">-->
+<!--                        <span class="icon">-->
+<!--                            <i class="far fa-user"></i>-->
+<!--                        </span>-->
+<!--                        <span>作者</span>-->
+<!--                    </span>-->
+                    <span class="icon-text">
+                        <span class="icon">
+                            <i class="fas fa-pencil-alt"></i>
+                        </span>
+                        <span>{{ .WordCount }}字</span>
+                    </span>
+                    <span class="icon-text">
+                        <span class="icon">
+                            <i class="far fa-clock"></i>
+                        </span>
+                        <span>{{ .ReadingTime }}分钟</span>
+                    </span>
+                </div>
+                {{ .Summary }}......
+                <a href="{{ .Permalink }}">更多</a>
+            </div>
+        </div>
+    </div>
+</div>
+{{ end }}
+{{ end }}
