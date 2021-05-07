@@ -1,6 +1,4 @@
-<!-- article style 3 -->
 {{ define "article-small-image" }}
-{{ range where .Site.RegularPages "Section" "posts" }}
 <div class="block">
     <div class="card">
         <div class="card-content">
@@ -48,12 +46,11 @@
                 </div>
                 <div class="media-right">
 <!--                    <figure class="image is-128x128">-->
-                    <img src="https://bulma.io/images/placeholders/128x128.png" alt="Placeholder image">
+                    <img src="{{ .Params.article_image_url }}">
 <!--                    </figure>-->
                 </div>
             </div>
         </div>
     </div>
 </div>
-{{ end }}
 {{ end }}

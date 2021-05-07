@@ -1,0 +1,12 @@
+{{ define "article-list" }}
+    <!-- 根据post类型判断使用哪个post模板，默认全文字模板-->
+    {{ range where .Site.RegularPages "Section" "posts" }}
+        {{ if eq .Params.article_image_type "small-image" }}
+            {{- block "article-small-image" . }}{{- end }}
+        {{ else if eq .Params.article_image_type "large-image" }}
+            {{- block "article-large-image" . }}{{- end }}
+        {{ else }}
+            {{- block "article-no-image" . }}{{- end }}
+        {{ end }}
+    {{ end }}
+{{ end }}
