@@ -1,17 +1,14 @@
 <!DOCTYPE html>
-<html lang="{{ $.Site.LanguageCode | default "en" }}">
+<html lang="{{ $.Site.LanguageCode | default "en" }}" class="has-navbar-fixed-top">
     {{- partial "head.html" . -}}
     <body>
-        <div style="width: 677px; margin: 0 auto">
-            {{- partial "header.html" . -}}
-            <section class="section">
-                <div class="container">
-                    <div class="content">
-                        {{- block "main" . }}{{- end }}
-                    </div>
-                </div>
-            </section>
-            {{- partial "footer.html" . -}}
-        </div>
+        {{- partial "header.html" . -}}
+        <section class="section">
+            <div class="container">
+                {{- block "main" . }}{{- end }}
+            </div>
+        </section>
+        {{- partial "footer.html" . -}}
+        {{- partial "script.html" . -}}
     </body>
 </html>

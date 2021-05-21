@@ -1,12 +1,42 @@
 {{ define "article-list" }}
-    <!-- 根据post类型判断使用哪个post模板，默认全文字模板-->
     {{ range where .Site.RegularPages "Section" "posts" }}
-        {{ if eq .Params.article_image_type "small-image" }}
-            {{- block "article-small-image" . }}{{- end }}
-        {{ else if eq .Params.article_image_type "large-image" }}
-            {{- block "article-large-image" . }}{{- end }}
-        {{ else }}
-            {{- block "article-no-image" . }}{{- end }}
-        {{ end }}
+    <article class="block">
+        <div class="content">
+            {{ if .Params.article_image_url }}
+            <div class="image is-16by9">
+                <img src="{{ .Params.article_image_url }}">
+            </div>
+            {{ end }}
+            <h1 class="title">
+                <a href="{{ .Permalink }}">{{ .Title }}</a>
+            </h1>
+            <!--                    <p class="subtitle">-->
+            <!--                        My first website with <strong>Bulma</strong>!-->
+            <!--                    </p>-->
+            <div class="block">
+                <span class="icon-text">
+                    <span class="icon">
+                        <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+                    </span>
+                    <span>2021-04-29</span>
+                </span>
+                <span class="icon-text">
+                    <span class="icon">
+                        <i class="fas fa-pencil-alt" aria-hidden="true"></i>
+                    </span>
+                    <span>939字</span>
+                </span>
+                <span class="icon-text">
+                    <span class="icon">
+                        <i class="far fa-clock" aria-hidden="true"></i>
+                    </span>
+                    <span>2分钟</span>
+                </span>
+            </div>
+            {{ .Summary  }}......
+            <a href="{{ .Permalink }}">阅读更多</a>
+        </div>
+        <hr>
+    </article>
     {{ end }}
 {{ end }}

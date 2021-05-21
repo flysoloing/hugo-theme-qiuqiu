@@ -1,13 +1,23 @@
 {{ define "main" }}
-<h1>标签：{{ .Data.Term }}</h1>
-{{ range .Data.Pages.GroupByDate "2006" }}
-<p>{{ .Key }}</p>
-<ul>
-    {{ range .Pages }}
-    <li>
-        <a href="{{ .Permalink }}">{{ .Title }} | {{ .Date.Format "01-02"}}</a>
-    </li>
+<div class="content">
+    <div class="block">
+        <span class="icon-text">
+            <span class="icon">
+                <i class="fas fa-tag" aria-hidden="true"></i>
+            </span>
+            <span>{{ .Data.Term }}</span>
+        </span>
+    </div>
+    {{ range .Data.Pages.GroupByDate "2006" }}
+    <hr>
+    <p>{{ .Key }}年</p>
+    <ul>
+        {{ range .Pages }}
+        <li>
+            <a href="{{ .Permalink }}">{{ .Title }} | {{ .Date.Format "01-02"}}</a>
+        </li>
+        {{ end }}
+    </ul>
     {{ end }}
-</ul>
-{{ end }}
+</div>
 {{ end }}

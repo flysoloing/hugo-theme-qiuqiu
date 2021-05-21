@@ -1,51 +1,57 @@
-<h1 class="title">{{ .Title }}</h1>
-<div class="block">
-    <span class="icon-text">
-        <span class="icon">
-            <i class="far fa-calendar-alt"></i>
-        </span>
-        <span>{{ .Date.Format "2006-01-06" }}</span>
-    </span>
-<!--    <span class="icon-text">-->
-<!--        <span class="icon">-->
-<!--            <i class="fas fa-tags"></i>-->
-<!--        </span>-->
-<!--        <span>标签</span>-->
-<!--    </span>-->
-<!--    <span class="icon-text">-->
-<!--        <span class="icon">-->
-<!--            <i class="far fa-user"></i>-->
-<!--        </span>-->
-<!--        <span>作者</span>-->
-<!--    </span>-->
-    <span class="icon-text">
-        <span class="icon">
-            <i class="fas fa-pencil-alt"></i>
-        </span>
-        <span>{{ .WordCount}}字</span>
-    </span>
-    <span class="icon-text">
-        <span class="icon">
-            <i class="far fa-clock"></i>
-        </span>
-        <span>{{ .ReadingTime }}分钟</span>
-    </span>
-</div>
-{{ .Content }}
-<nav class="pagination is-centered" role="navigation" aria-label="pagination">
+<article class="block">
+    <div class="content">
+        {{ if .Params.article_image_url }}
+        <div class="image is-16by9">
+            <img src="{{ .Params.article_image_url }}">
+        </div>
+        {{ end }}
+        <h1 class="title">{{ .Title }}</h1>
+        <p class="subtitle">
+            My first website with <strong>Bulma</strong>!
+        </p>
+        <div class="block">
+            <span class="icon-text">
+                <span class="icon">
+                    <i class="far fa-calendar-alt" aria-hidden="true"></i>
+                </span>
+                <span>{{ .Date.Format "2006-01-06" }}</span>
+            </span>
+            <span class="icon-text">
+                <span class="icon">
+                    <i class="fas fa-pencil-alt" aria-hidden="true"></i>
+                </span>
+                <span>{{ .WordCount}}字</span>
+            </span>
+            <span class="icon-text">
+                <span class="icon">
+                    <i class="far fa-clock" aria-hidden="true"></i>
+                </span>
+                <span>{{ .ReadingTime }}分钟</span>
+            </span>
+            <!--    <span class="icon-text">-->
+            <!--        <span class="icon">-->
+            <!--            <i class="fas fa-tags"></i>-->
+            <!--        </span>-->
+            <!--        <span>标签</span>-->
+            <!--    </span>-->
+            <!--    <span class="icon-text">-->
+            <!--        <span class="icon">-->
+            <!--            <i class="far fa-user"></i>-->
+            <!--        </span>-->
+            <!--        <span>作者</span>-->
+            <!--    </span>-->
+        </div>
+        {{ .Content }}
+    </div>
+    <hr>
+</article>
+<!-- 分页 -->
+<nav class="pagination is-rounded is-centered" role="navigation" aria-label="pagination">
     {{ with .NextInSection }}
-    <a class="pagination-previous" href="{{ .Permalink }}">上一页：{{ .Title }}</a>
+    <a class="pagination-previous" href="{{ .Permalink }}">上一篇：{{ .Title }}</a>
     {{ end }}
     {{ with .PrevInSection }}
-    <a class="pagination-next" href="{{ .Permalink }}">下一页：{{ .Title }}</a>
+    <a class="pagination-next" href="{{ .Permalink }}">下一篇：{{ .Title }}</a>
     {{ end }}
-<!--    <ul class="pagination-list">-->
-<!--        <li><a class="pagination-link" aria-label="Goto page 1">1</a></li>-->
-<!--        <li><span class="pagination-ellipsis">&hellip;</span></li>-->
-<!--        <li><a class="pagination-link" aria-label="Goto page 45">45</a></li>-->
-<!--        <li><a class="pagination-link is-current" aria-label="Page 46" aria-current="page">46</a></li>-->
-<!--        <li><a class="pagination-link" aria-label="Goto page 47">47</a></li>-->
-<!--        <li><span class="pagination-ellipsis">&hellip;</span></li>-->
-<!--        <li><a class="pagination-link" aria-label="Goto page 86">86</a></li>-->
-<!--    </ul>-->
 </nav>
+<!-- TODO 右侧悬浮目录 -->

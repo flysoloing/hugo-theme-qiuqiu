@@ -1,7 +1,16 @@
 {{ define "main" }}
-<div>
+<div class="content">
+    <div class="block">
+        <span class="icon-text">
+            <span class="icon">
+                <i class="fas fa-archive" aria-hidden="true"></i>
+            </span>
+            <span>文章列表</span>
+        </span>
+    </div>
     {{ range .Pages.GroupByDate "2006" }}
-    <p>{{ .Key }}</p>
+    <hr>
+    <p>{{ .Key }}年</p>
     <ul>
         {{ range .Pages }}
         <li>
