@@ -1,4 +1,13 @@
 {{ define "main" }}
+<div class="block">
+    <span class="icon-text">
+        <span class="icon">
+            <i class="fas fa-tags" aria-hidden="true"></i>
+        </span>
+        <span>标签汇总</span>
+    </span>
+</div>
+<hr>
 <div class="field is-grouped is-grouped-multiline">
     {{- range $.Site.Taxonomies.tags.ByCount -}}
     <div class="control">

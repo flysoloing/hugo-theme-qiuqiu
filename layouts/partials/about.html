@@ -1,3 +1,10 @@
 <div class="content">
+    {{ if .Params.cover_image }}
+    <div class="image is-16by9">
+        <img src="{{ .Params.cover_image }}">
+    </div>
+    {{ end }}
+    <h1 class="title">{{ .Title }}</h1>
+    {{- block "social" . }}{{- end }}
     {{ .Content }}
 </div>

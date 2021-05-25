@@ -1,7 +1,22 @@
 {{ define "pagination" }}
-<!-- TODO 首页分页 -->
-<nav class="pagination is-rounded is-centered" role="navigation" aria-label="pagination">
-    <a class="pagination-previous" href="/">上一页</a>
-    <a class="pagination-next" href="/">下一页</a>
-</nav>
+    {{ $paginator := .Paginator }}
+    {{ if gt $paginator.TotalPages 1 }}
+    <nav class="pagination is-rounded is-centered" role="navigation" aria-label="pagination">
+        {{ if $paginator.HasPrev }}
+        <a class="pagination-previous" href="{{ $paginator.Prev.URL }}">上一页</a>
+        {{ end }}
+        {{ if $paginator.HasNext }}
+        <a class="pagination-next" href="{{ $paginator.Next.URL }}">下一页</a>
+        {{ end }}
+        <ul class="pagination-list">
+<!--            <li><a class="pagination-link" aria-label="Goto page 1">1</a></li>-->
+<!--            <li><span class="pagination-ellipsis">&hellip;</span></li>-->
+<!--            <li><a class="pagination-link" aria-label="Goto page 45">45</a></li>-->
+<!--            <li><a class="pagination-link is-current" aria-label="Page 46" aria-current="page">46</a></li>-->
+<!--            <li><a class="pagination-link" aria-label="Goto page 47">47</a></li>-->
+<!--            <li><span class="pagination-ellipsis">&hellip;</span></li>-->
+<!--            <li><a class="pagination-link" aria-label="Goto page 86">86</a></li>-->
+        </ul>
+    </nav>
+    {{ end }}
 {{ end }}

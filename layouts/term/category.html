@@ -12,9 +12,9 @@
     <hr>
     <p>{{ .Key }}年</p>
     <ul>
-        {{ range .Pages | first 1 }}
+        {{ range .Pages }}
         <li>
-            <a href="{{ .Permalink }}">{{ .Title }} | {{ .Date.Format "01-02"}}</a>
+            <a href="{{ .Permalink }}">{{ .Date.Format "01-02"}} | {{ .Title }}</a>
         </li>
         {{ end }}
     </ul>

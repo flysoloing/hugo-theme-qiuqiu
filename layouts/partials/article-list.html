@@ -1,10 +1,11 @@
 {{ define "article-list" }}
-    {{ range where .Site.RegularPages "Section" "posts" }}
+    {{ $paginator := .Paginate (where .Site.RegularPages "Section" "posts") }}
+    {{ range $paginator.Pages }}
     <article class="block">
         <div class="content">
-            {{ if .Params.article_image_url }}
+            {{ if .Params.cover_image }}
             <div class="image is-16by9">
-                <img src="{{ .Params.article_image_url }}">
+                <img src="{{ .Params.cover_image }}">
             </div>
             {{ end }}
             <h1 class="title">

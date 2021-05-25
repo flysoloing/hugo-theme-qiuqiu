@@ -1,12 +1,37 @@
-<span class="icon has-text-info">
-  <i class="fas fa-info-circle"></i>
-</span>
-<span class="icon has-text-success">
-  <i class="fas fa-check-square"></i>
-</span>
-<span class="icon has-text-warning">
-  <i class="fas fa-exclamation-triangle"></i>
-</span>
-<span class="icon has-text-danger">
-  <i class="fas fa-ban"></i>
-</span>
+{{ define "social" }}
+<div class="block">
+    {{ if .Params.social.github }}
+    <span class="icon">
+        <a href="{{ .Params.social.github }}"><i class="fab fa-github"></i></a>
+    </span>
+    {{ end }}
+    {{ if .Params.social.twitter }}
+    <span class="icon">
+        <a href="{{ .Params.social.twitter }}"><i class="fab fa-twitter"></i></a>
+    </span>
+    {{ end }}
+    {{ if .Params.social.facebook }}
+    <span class="icon">
+        <a href="{{ .Params.social.facebook }}"><i class="fab fa-facebook"></i></a>
+    </span>
+    {{ end }}
+    {{ if .Params.social.instagram }}
+    <span class="icon">
+        <a href="{{ .Params.social.instagram }}"><i class="fab fa-instagram"></i></a>
+    </span>
+    {{ end }}
+    {{ if .Params.social.weixin }}
+    <span class="icon">
+        <a href="{{ .Params.social.weixin }}"><i class="fab fa-weixin"></i></a>
+    </span>
+    {{ end }}
+    {{ if .Params.social.weibo }}
+    <span class="icon">
+        <a href="{{ .Params.social.weibo }}"><i class="fab fa-weibo"></i></a>
+    </span>
+    {{ end }}
+    <span class="icon">
+        <a href="/index.xml"><i class="fas fa-rss"></i></a>
+    </span>
+</div>
+{{ end }}
