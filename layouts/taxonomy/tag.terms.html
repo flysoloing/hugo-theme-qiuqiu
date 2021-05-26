@@ -12,7 +12,7 @@
     {{- range $.Site.Taxonomies.tags.ByCount -}}
     <div class="control">
         <div class="tags has-addons">
-            <a class="tag is-info" href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
+            <a class="tag is-primary" href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
             <a class="tag">{{ .Count }}</a>
         </div>
     </div>
