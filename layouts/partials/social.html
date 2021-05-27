@@ -1,10 +1,5 @@
 {{ define "social" }}
 <div class="block">
-    {{ if .Params.social.github }}
-    <span class="icon">
-        <a href="{{ .Params.social.github }}"><i class="fab fa-github"></i></a>
-    </span>
-    {{ end }}
     {{ if .Params.social.twitter }}
     <span class="icon">
         <a href="{{ .Params.social.twitter }}"><i class="fab fa-twitter"></i></a>
@@ -28,6 +23,22 @@
     {{ if .Params.social.weibo }}
     <span class="icon">
         <a href="{{ .Params.social.weibo }}"><i class="fab fa-weibo"></i></a>
+    </span>
+    {{ end }}
+    {{ if .Params.social.github }}
+    <span class="icon">
+        <a href="{{ .Params.social.github }}"><i class="fab fa-github"></i></a>
+    </span>
+<!--    <span class="icon" aria-describedby="mytest001">-->
+<!--        <a href="{{ .Params.social.github }}"><i class="fab fa-github"></i></a>-->
+<!--    </span>-->
+<!--    <span role="tooltip" class="icon" id="mytest001" aria-hidden="true">-->
+<!--        <i class="fas fa-rss"></i>-->
+<!--    </span>-->
+    {{ end }}
+    {{ if .Params.social.email }}
+    <span class="icon">
+        <a href="mailto:{{ .Params.social.email }}"><i class="fas fa-envelope"></i></a>
     </span>
     {{ end }}
     <span class="icon">
