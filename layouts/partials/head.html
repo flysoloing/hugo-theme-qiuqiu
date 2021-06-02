@@ -13,4 +13,20 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
     <!-- TODO 增加是否支持math的站点参数配置 -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    {{ if eq .Type "about" }}
+    <style>
+        .weixin {
+            position: relative;
+        }
+        .weixin-qrcode {
+            display: none;
+            position: absolute;
+            left: 0px;
+            top: -50px;
+        }
+        .weixin:hover .weixin-qrcode {
+            display: block;
+        }
+    </style>
+    {{ end }}
 </head>

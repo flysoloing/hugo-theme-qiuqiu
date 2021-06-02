@@ -15,10 +15,20 @@
         <a href="{{ .Params.social.instagram }}"><i class="fab fa-instagram"></i></a>
     </span>
     {{ end }}
-    {{ if .Params.social.weixin }}
+    {{ if .Params.social.linkedin }}
     <span class="icon">
-        <a href="{{ .Params.social.weixin }}"><i class="fab fa-weixin"></i></a>
+        <a href="{{ .Params.social.linkedin }}"><i class="fab fa-linkedin"></i></a>
     </span>
+    {{ end }}
+    {{ if .Params.social.weixin }}
+    <div class="icon weixin" aria-describedby="weixin-qrcode">
+        <a><i class="fab fa-weixin"></i></a>
+        <div id="weixin-qrcode" role="tooltip" class="weixin-qrcode">
+            <figure class="image is-128x128">
+                <img src="{{ .Params.social.weixin }}">
+            </figure>
+        </div>
+    </div>
     {{ end }}
     {{ if .Params.social.weibo }}
     <span class="icon">
@@ -29,12 +39,6 @@
     <span class="icon">
         <a href="{{ .Params.social.github }}"><i class="fab fa-github"></i></a>
     </span>
-<!--    <span class="icon" aria-describedby="mytest001">-->
-<!--        <a href="{{ .Params.social.github }}"><i class="fab fa-github"></i></a>-->
-<!--    </span>-->
-<!--    <span role="tooltip" class="icon" id="mytest001" aria-hidden="true">-->
-<!--        <i class="fas fa-rss"></i>-->
-<!--    </span>-->
     {{ end }}
     {{ if .Params.social.email }}
     <span class="icon">
