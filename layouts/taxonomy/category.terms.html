@@ -10,12 +10,46 @@
 <hr>
 <div class="field is-grouped is-grouped-multiline">
     {{- range $.Site.Taxonomies.categories.ByCount -}}
+    <!-- TODO 根据每个标签名称计算出一个唯一的值，再对这个值进行取模，然后选择对应的颜色，进行不同颜色展示 -->
+        {{ $digitalStr := replaceRE "[a-z]" "" (md5 .Page.Title) }}
+        {{ $digitalNum := int (substr $digitalStr -1) }}
+        {{ $hashCode := mod $digitalNum 5 }}
+        {{ if eq $hashCode 0 }}
     <div class="control">
         <div class="tags has-addons">
             <a class="tag is-primary" href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
             <a class="tag">{{ .Count }}</a>
         </div>
     </div>
+        {{ else if eq $hashCode 1 }}
+    <div class="control">
+        <div class="tags has-addons">
+            <a class="tag is-info" href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
+            <a class="tag">{{ .Count }}</a>
+        </div>
+    </div>
+        {{ else if eq $hashCode 2 }}
+    <div class="control">
+        <div class="tags has-addons">
+            <a class="tag is-success" href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
+            <a class="tag">{{ .Count }}</a>
+        </div>
+    </div>
+        {{ else if eq $hashCode 3 }}
+    <div class="control">
+        <div class="tags has-addons">
+            <a class="tag is-warning" href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
+            <a class="tag">{{ .Count }}</a>
+        </div>
+    </div>
+        {{ else if eq $hashCode 4 }}
+    <div class="control">
+        <div class="tags has-addons">
+            <a class="tag is-danger" href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
+            <a class="tag">{{ .Count }}</a>
+        </div>
+    </div>
+        {{ end }}
     {{- end -}}
     <!-- TODO 可以考虑用sup元素来展示分类数量 -->
 </div>
