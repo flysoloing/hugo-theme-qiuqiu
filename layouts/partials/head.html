@@ -3,7 +3,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--    <title>{{ block "title" . }}{{ .Title }} | {{ .Type }}{{ end }}</title>-->
-    <title>{{ $.Site.Title }}-{{ if eq .Title "Posts" }}归档{{ else if eq .Title "Tags" }}标签{{ else if eq .Title "Categories" }}分类{{ else }}{{ .Title }}{{ end }}</title>
+    <title>{{ $.Site.Title }}-{{ if eq .Title "Posts" }}归档{{ else if eq .Title "Tags" }}标签{{ else if eq .Title "Categories" }}分类{{ else if eq .Kind "404" }}页面不见啦{{ else }}{{ .Title }}{{ end }}</title>
     <!--以下两种引用方式均可-->
     <link rel="stylesheet" href="{{ "css/qiuqiu.css" | absURL}}">
 <!--    <link rel="stylesheet" href="{{ .Site.BaseURL}}css/qiuqiu.css">-->
