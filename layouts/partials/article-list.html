@@ -19,23 +19,27 @@
                     <span class="icon">
                         <i class="far fa-calendar-alt" aria-hidden="true"></i>
                     </span>
-                    <span>2021-04-29</span>
+                    <span>{{ .Date.Format "2006-01-02" }}</span>
                 </span>
                 <span class="icon-text">
                     <span class="icon">
                         <i class="fas fa-pencil-alt" aria-hidden="true"></i>
                     </span>
-                    <span>939字</span>
+                    <span>{{ .WordCount }}字</span>
                 </span>
                 <span class="icon-text">
                     <span class="icon">
                         <i class="far fa-clock" aria-hidden="true"></i>
                     </span>
-                    <span>2分钟</span>
+                    <span>{{ .ReadingTime }}分钟</span>
                 </span>
             </div>
+            {{ if .Truncated }}
             {{ .Summary  }}......
             <a href="{{ .Permalink }}">阅读更多</a>
+            {{ else }}
+            {{ .Content }}
+            {{ end }}
         </div>
         <hr>
     </article>
