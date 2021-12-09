@@ -1,7 +1,7 @@
 <article class="block">
     <div class="content">
         {{ if .Params.cover_image }}
-        <div class="image is-16by9">
+        <div class="image">
             <img src="{{ .Params.cover_image }}">
         </div>
         {{ end }}
@@ -47,11 +47,15 @@
 </article>
 <!-- 分页 -->
 <nav class="pagination is-rounded is-centered" role="navigation" aria-label="pagination">
-    {{ with .NextInSection }}
-    <a class="pagination-previous" href="{{ .Permalink }}">上一篇：{{ .Title }}</a>
+    {{ if .NextInSection }}
+    <a class="pagination-previous" href="{{ .NextInSection.Permalink }}">上一篇：{{ .NextInSection.Title }}</a>
+    {{ else }}
+    <a class="pagination-previous" disabled>上一篇：没有了</a>
     {{ end }}
-    {{ with .PrevInSection }}
-    <a class="pagination-next" href="{{ .Permalink }}">下一篇：{{ .Title }}</a>
+    {{ if .PrevInSection }}
+    <a class="pagination-next" href="{{ .PrevInSection.Permalink }}">下一篇：{{ .PrevInSection.Title }}</a>
+    {{ else }}
+    <a class="pagination-next" disabled>下一篇：没有了</a>
     {{ end }}
 </nav>
 <!-- TODO 右侧悬浮目录 -->
