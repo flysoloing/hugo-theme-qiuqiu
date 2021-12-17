@@ -2,12 +2,14 @@
 <html lang="{{ $.Site.LanguageCode | default "en" }}" class="has-navbar-fixed-top">
     {{- partial "head.html" . -}}
     <body>
+        <div id="wrapper">
         {{- partial "header.html" . -}}
         <section class="section">
             <div class="container">
                 {{- block "main" . }}{{- end }}
             </div>
         </section>
+        </div>
         {{- partial "footer.html" . -}}
         {{- partial "script.html" . -}}
     </body>
