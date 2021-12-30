@@ -9,8 +9,9 @@
         </span>
     </div>
     {{ range .Data.Pages.GroupByDate "2006" }}
+    {{ $pageCountByYear := len .Pages }}
     <hr>
-    <p>{{ .Key }}年</p>
+    <p>{{ .Key }}年，共{{ $pageCountByYear }}篇</p>
     <ul>
         {{ range .Pages }}
         <li>

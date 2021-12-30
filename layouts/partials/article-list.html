@@ -1,6 +1,9 @@
 {{ define "article-list" }}
     {{ $paginator := .Paginate (where .Site.RegularPages "Section" "posts") }}
-    {{ range $paginator.Pages }}
+    {{ $articleList := $paginator.Pages }}
+    {{ $length := len $articleList | add -1 }}
+    {{ range $index, $element := $articleList }}
+<!--{ { range $articleList }}-->
     <article class="block">
         <div class="content">
             {{ if .Params.cover_image }}
@@ -35,13 +38,27 @@
                 </span>
             </div>
             {{ if .Truncated }}
-            {{ .Summary  }}......
-            <a href="{{ .Permalink }}">阅读更多</a>
+            {{ .Summary  }}&hellip;&hellip;<a href="{{ .Permalink }}">阅读全文</a>
             {{ else }}
             {{ .Content }}
             {{ end }}
         </div>
+        <!--
+        1. 如果当前文章为最后一篇
+            1.1. 如果有下一页，保留<hr>
+            1.2. 如果有上一页，保留<hr>
+            1.3. 否则，移除<hr>
+        2. 否则保留<hr>
+        -->
+        {{ if eq $index $length }}
+        {{ if $paginator.HasNext }}
         <hr>
+        {{ else if $paginator.HasPrev }}
+        <hr>
+        {{ end }}
+        {{ else }}
+        <hr>
+        {{ end }}
     </article>
     {{ end }}
 {{ end }}
