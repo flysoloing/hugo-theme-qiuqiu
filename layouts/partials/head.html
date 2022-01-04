@@ -5,7 +5,7 @@
 <!--    <title>{{ block "title" . }}{{ .Title }} | {{ .Type }}{{ end }}</title>-->
     <title>{{ $.Site.Title }} | {{ if eq .Title "Posts" }}归档{{ else if eq .Title "Tags" }}标签{{ else if eq .Title "Categories" }}分类{{ else if eq .Kind "404" }}页面不见啦{{ else }}{{ .Title }}{{ end }}</title>
     <meta name="author" content="flysoloing">
-    <meta name="keywords" content="{{ if .Keywords }}{{ $length := len .Keywords | add -1 }}{{ range $index, $element := .Keywords }}{{ $element }}{{ if ne $index $length }},{{ end }}{{ end }}{{ else }}CRUDMAN,CRUD MAN,软件研发和架构,职业发展,读书笔记,生活随笔{{ end }}">
+    <meta name="keywords" content="{{ if .Keywords }}{{ $length := len .Keywords | add -1 }}{{ range $index, $element := .Keywords }}{{ $element }}{{ if ne $index $length }},{{ end }}{{ end }}{{ else }}CRUDMAN,CRUD MAN,撸码侠,软件开发和架构设计,职业发展,读书笔记,生活随笔{{ end }}">
     <meta name="description" content="{{ if .Description }}{{ .Description }}{{ else }}本站属于我的个人网站，建立本站的初衷是为了记录、沉淀和分享，主要包含四个领域：软件研发和架构，职业发展，读书笔记，生活随笔。希望和更多的朋友交流，持续进步，共同成长{{ end }}">
     <!--以下两种引用方式均可-->
     <link rel="stylesheet" href="{{ "css/qiuqiu.css" | absURL}}">
