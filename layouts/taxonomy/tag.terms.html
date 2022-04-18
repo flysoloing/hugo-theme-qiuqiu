@@ -18,35 +18,35 @@
     <div class="control">
         <div class="tags has-addons">
             <a class="tag is-primary" href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
-            <a class="tag">{{ .Count }}</a>
+            <span class="tag">{{ .Count }}</span>
         </div>
     </div>
         {{ else if eq $hashCode 1 }}
     <div class="control">
         <div class="tags has-addons">
             <a class="tag is-info" href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
-            <a class="tag">{{ .Count }}</a>
+            <span class="tag">{{ .Count }}</span>
         </div>
     </div>
         {{ else if eq $hashCode 2 }}
     <div class="control">
         <div class="tags has-addons">
             <a class="tag is-success" href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
-            <a class="tag">{{ .Count }}</a>
+            <span class="tag">{{ .Count }}</span>
         </div>
     </div>
         {{ else if eq $hashCode 3 }}
     <div class="control">
         <div class="tags has-addons">
             <a class="tag is-warning" href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
-            <a class="tag">{{ .Count }}</a>
+            <span class="tag">{{ .Count }}</span>
         </div>
     </div>
         {{ else if eq $hashCode 4 }}
     <div class="control">
         <div class="tags has-addons">
             <a class="tag is-danger" href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
-            <a class="tag">{{ .Count }}</a>
+            <span class="tag">{{ .Count }}</span>
         </div>
     </div>
         {{ end}}
