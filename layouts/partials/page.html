@@ -49,9 +49,9 @@
             <span class="icon">
                 <i class="fas fa-folder-open"></i>
             </span>
-            <span>分类：</span>
+<!--            <span>分类：</span>-->
             {{ range .Params.categories }}
-            <a href="/categories/{{ lower . }}">{{ . }}</a>
+            <span><a href="/categories/{{ lower . }}">{{ . }}</a></span>
             <span>&nbsp;</span>
             {{ end }}
         </span>
@@ -63,9 +63,9 @@
             <span class="icon">
                 <i class="fas fa-tags"></i>
             </span>
-            <span>标签：</span>
+<!--            <span>标签：</span>-->
             {{ range .Params.tags }}
-            <a href="/tags/{{ lower . }}">[{{ . }}]</a>
+            <span><a href="/tags/{{ lower . }}">[{{ . }}]</a></span>
             <span>&nbsp;</span>
             {{ end }}
         </span>
