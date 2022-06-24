@@ -8,14 +8,17 @@
     <meta name="keywords" content="{{ if .Keywords }}{{ $length := len .Keywords | add -1 }}{{ range $index, $element := .Keywords }}{{ $element }}{{ if ne $index $length }},{{ end }}{{ end }}{{ else }}CRUDMAN,CRUD MAN,撸码侠,软件开发,架构设计,职业发展,读书笔记,生活随笔{{ end }}">
     <meta name="description" content="{{ if .Description }}{{ .Description }}{{ else }}本站属于我的个人网站，建立本站的初衷是为了记录、沉淀和分享，主要包含几个领域：软件开发，架构设计，职业发展，读书笔记，生活随笔。希望和更多的朋友交流，持续进步，共同成长{{ end }}">
     <!--以下两种引用方式均可-->
-    <link rel="stylesheet" href="{{ "css/qiuqiu.css" | absURL}}">
+<!--    <link rel="stylesheet" href="{{ "css/qiuqiu.css" | absURL}}">-->
+    <link rel="stylesheet" href="{{ "css/qiuqiu.min.css" | absURL}}">
 <!--    <link rel="stylesheet" href="{{ .Site.BaseURL}}css/qiuqiu.css">-->
     <link rel="shortcut icon" href="{{ "image/favicon.ico" | absURL }}">
 <!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">-->
     <script src="https://kit.fontawesome.com/de403a8677.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
     <!-- TODO 增加是否支持math的站点参数配置 -->
+    {{ if .Params.hasMathFormula }}
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    {{ end }}
     {{ if eq .Type "about" }}
     <style>
         .weixin {

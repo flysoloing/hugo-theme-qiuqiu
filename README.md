@@ -26,7 +26,7 @@
 
 ### 待办事项
 - [x] LOGO，要求640px * 160px
-- [x] 确认主题颜色，暂定Taptap蓝
+- [x] 确认主题颜色，暂定Taptap蓝，或者类似颜色
 - [x] 添加favicon.ico
 - [x] 首页文章卡片样式选择
 - [x] 首页文章列表分页
@@ -74,3 +74,8 @@
 - [ ] 增加相关文章列表
 - [ ] 增加最近更新文章列表
 - [x] page页面最下面，去掉“分类：”和“标签：”
+- [x] 国内外访问性能优化，使用CDN加速，如Cloudflare，vercel，netlify等
+- [x] 优化数学公式相关JS加载性能，根据hasMathFormula进行判断，true or false
+- [x] 优化qiuqiu.css，精简不必要元素组件，同时采用压缩编译，head.html已改为qiuqiu.min.css引用
+- [ ] 若文章有更新，在文章内增加文章更新于X年X月X日的提示
+- [x] 是否展示封面图片，由cover_image，改为coverImage进行判断，统一名命风格

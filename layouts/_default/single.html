@@ -1,6 +1,8 @@
 {{ define "main" }}
     {{ if eq .Type "about" }}
         {{- partial "about.html" . -}}
+    {{ else if eq .Type "resume" }}
+        {{- partial "resume.html" . -}}
     {{ else }}
         {{- partial "page.html" . -}}
     {{ end }}
