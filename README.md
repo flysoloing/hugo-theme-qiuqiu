@@ -31,9 +31,9 @@
 - [x] 首页文章卡片样式选择
 - [x] 首页文章列表分页
 - [x] 各页面title问题
-- [x] 各页面meta和关键字问题
+- [x] 各页面meta和关键字问题，具体文章页面的关键字使用Front Matter里的keyword填充，或者将tags转换为keywords
 - [x] 文章图片问题（图床）
-- [ ] 文章目录，参考https://gohugo.io/content-management/toc/
+- [ ] 在文章页面，增加文章目录，在移动端打开时隐藏，具体实现参考https://gohugo.io/content-management/toc/
 - [x] 首页样式美观问题
 - [x] header顶部吸附问题
 - [x] 不同设备间响应式布局问题
@@ -72,7 +72,7 @@
 - [x] 统一用{{ $.Site.Title }}代替硬编码方式的站点命名
 - [x] Categories和Tags页面，标签组后面的数字，取消超链接
 - [ ] 增加相关文章列表
-- [ ] 增加最近更新文章列表，在归档页，或者在首页右边栏
+- [ ] 增加最近更新文章列表，在归档页，或者在首页右边栏，在移动端打开时隐藏
 - [x] page页面最下面，去掉“分类：”和“标签：”
 - [x] 国内外访问性能优化，使用CDN加速，如Cloudflare，vercel，netlify等
 - [x] 优化数学公式相关JS加载性能，根据hasMathFormula进行判断，true or false
@@ -81,3 +81,8 @@
 - [x] 是否展示封面图片，由cover_image，改为coverImage进行判断，统一名命风格
 - [ ] 文章页面侧边栏，增加悬浮按钮，快速回到顶部
 - [x] 文章页面底部，增加一两行空行，避免文章内容离分类和标签太近
+- [x] 减少第三方JS库的依赖，如jQuery的用途不多，可以用原生JavaScript脚本替换，提升页面加载速度
+- [x] img图片元素增加alt属性，优化SEO效率
+- [ ] 考虑文章标题过短过长时，确保分页展示保持一致，在移动端时表现为上下堆叠？
+- [x] 将标题格式从之前的“Site Title | Page Title”改为“Page Title - Site Title”
+- [x] SEO，增加百度/Google等搜索引擎的收录
