@@ -18,9 +18,11 @@
     <meta property="og:url" content="{{ .Permalink }}">
     <meta property="og:site_name" content="CRUDMAN">
     {{ if and (eq .Kind "page") (eq .Type "posts") }}
-    <meta property="og:image" content="{{ .Params.coverImage }}">
+    <meta property="og:image" content="{{ if .Params.coverImage }}{{ .Params.coverImage }}{{ else }}{{ "image/weixinlogo.png" | absURL }}{{ end }}">
     <meta property="article:published_time" content="{{ .Date.Format "2006-01-02 15:04:05" }}">
     <meta property="article:modified_time" content="{{ .Lastmod.Format "2006-01-02 15:04:05" }}">
+    {{ else }}
+    <meta property="og:image" content="{{ "image/weixinlogo.png" | absURL }}">
     {{ end }}
 <!--    <title>{{ block "title" . }}{{ .Title }} | {{ .Type }}{{ end }}</title>-->
     <title>{{ if eq .Title "Posts" }}归档{{ else if eq .Title "Tags" }}标签{{ else if eq .Title "Categories" }}分类{{ else if eq .Kind "404" }}页面不见啦{{ else }}{{ .Title }}{{ end }} - {{ $.Site.Title }}</title>
