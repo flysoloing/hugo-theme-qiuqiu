@@ -1,0 +1,54 @@
+<script>
+    function replaceWithFigure() {
+        const $imgs = Array.prototype.slice.call(document.querySelectorAll('p > img'), 0);
+
+        let i = 0;
+        $imgs.forEach(el => {
+            const parentEl = el.parentNode;
+            if(!parentEl.hasAttribute('id')) {
+                parentEl.setAttribute('id', 'egg'+i);
+                i++;
+            }
+        });
+
+        const $groupedImgs = $imgs.reduce((arr, item) => {
+            if(arr[item.parentNode.id]) {
+                arr[item.parentNode.id].push(item);
+            } else {
+                arr[item.parentNode.id] = [item];
+            }
+            return arr;
+        }, {});
+
+        Object.keys($groupedImgs).forEach(key => {
+            const tmpImgs = $groupedImgs[key];
+            addFigcaption(key, tmpImgs);
+        });
+    }
+
+    function addFigcaption(key, imgs) {
+        const parentEl = document.querySelector('p[id='+key+']');
+        const figureEl = document.createElement('figure');
+        figureEl.setAttribute('id', key);
+        parentEl.replaceWith(figureEl);
+        imgs.forEach(el => {
+            figureEl.appendChild(el);
+        });
+        imgs.forEach(el => {
+            if(el.alt) {
+                const figcaptionEl = document.createElement('figcaption');
+                figcaptionEl.innerHTML = el.alt;
+                figureEl.appendChild(figcaptionEl);
+            }
+        });
+        const figureStr = figureEl.innerHTML;
+        figureEl.innerHTML = figureStr.replaceAll('><', '> <');
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', replaceWithFigure);
+    } else {
+        replaceWithFigure();
+    }
+
+</script>

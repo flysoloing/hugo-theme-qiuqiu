@@ -16,3 +16,15 @@
         </ul>
     </nav>
 </aside>
+
+{{ if not .Params.notoc }}
+<aside>
+    <header>
+        <a href="#{{.Title | urlize}}">
+            <h3>{{.Title}}</h3>
+        </a>
+    </header>
+    {{.TableOfContents}}
+</aside>
+<a href="#" id="toc-toggle"></a>
+{{ end }}

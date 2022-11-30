@@ -12,13 +12,13 @@
         <div class="block">
             <span class="icon-text">
                 <span class="icon">
-                    <i class="far fa-calendar-alt" aria-hidden="true"></i>
+                    <i class="far fa-calendar" aria-hidden="true"></i>
                 </span>
                 <span>{{ .Date.Format "2006-01-02" }}</span>
             </span>
             <span class="icon-text">
                 <span class="icon">
-                    <i class="fas fa-pencil-alt" aria-hidden="true"></i>
+                    <i class="fas fa-pencil" aria-hidden="true"></i>
                 </span>
                 <span>约{{ .WordCount }}字</span>
             </span>
@@ -41,6 +41,14 @@
             <!--        <span>作者</span>-->
             <!--    </span>-->
         </div>
+        {{ if ne .Date .Lastmod }}
+        <p class="notification is-no-padding is-warning is-light">
+            <span class="icon">
+                <i class="far fa-bell"></i>
+            </span>
+            本文最后更新于 {{ .Lastmod.Format "2006-01-02 15:04:05" }}
+        </p>
+        {{ end }}
         {{ .Content }}
         <p>&nbsp;</p>
     </div>
@@ -48,7 +56,7 @@
     <div>
         <span class="icon-text">
             <span class="icon">
-                <i class="fas fa-folder-open"></i>
+                <i class="far fa-folder-open"></i>
             </span>
 <!--            <span>分类：</span>-->
             {{ range .Params.categories }}
