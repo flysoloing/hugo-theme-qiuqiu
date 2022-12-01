@@ -1658,6 +1658,10 @@ body.has-spaced-navbar-fixed-bottom {
   font-weight: 600;
   line-height: 1.125;
 }
+.content p > img {
+  display: block;
+  margin: 0 auto;
+}
 .content h1 {
   font-size: 2em;
   margin-bottom: 0.5em;
