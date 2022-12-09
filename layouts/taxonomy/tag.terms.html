@@ -8,7 +8,7 @@
     </span>
 </div>
 <hr>
-<div class="field is-grouped is-grouped-multiline">
+<div class="field is-grouped is-grouped-multiline is-grouped-multiline-centered">
     {{- range $.Site.Taxonomies.tags.ByCount -}}
     <!-- TODO 根据每个标签名称计算出一个唯一的值，再对这个值进行取模，然后选择对应的颜色，进行不同颜色展示 -->
         {{ $digitalStr := replaceRE "[a-z]" "" (md5 .Page.Title) }}
@@ -17,36 +17,36 @@
         {{ if eq $hashCode 0 }}
     <div class="control">
         <div class="tags has-addons">
-            <a class="tag is-primary" href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
-            <span class="tag">{{ .Count }}</span>
+            <a class="tag is-primary {{ if and (gt .Count 5) (le .Count 10) }}is-medium{{ else if gt .Count 10 }}is-large{{ end }}" href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
+            <span class="tag is-primary is-light {{ if and (gt .Count 5) (le .Count 10) }}is-medium{{ else if gt .Count 10 }}is-large{{ end }}">{{ .Count }}</span>
         </div>
     </div>
         {{ else if eq $hashCode 1 }}
     <div class="control">
         <div class="tags has-addons">
-            <a class="tag is-info" href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
-            <span class="tag">{{ .Count }}</span>
+            <a class="tag is-info {{ if and (gt .Count 5) (le .Count 10) }}is-medium{{ else if gt .Count 10 }}is-large{{ end }}" href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
+            <span class="tag is-info is-light {{ if and (gt .Count 5) (le .Count 10) }}is-medium{{ else if gt .Count 10 }}is-large{{ end }}">{{ .Count }}</span>
         </div>
     </div>
         {{ else if eq $hashCode 2 }}
     <div class="control">
         <div class="tags has-addons">
-            <a class="tag is-success" href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
-            <span class="tag">{{ .Count }}</span>
+            <a class="tag is-success {{ if and (gt .Count 5) (le .Count 10) }}is-medium{{ else if gt .Count 10 }}is-large{{ end }}" href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
+            <span class="tag is-success is-light {{ if and (gt .Count 5) (le .Count 10) }}is-medium{{ else if gt .Count 10 }}is-large{{ end }}">{{ .Count }}</span>
         </div>
     </div>
         {{ else if eq $hashCode 3 }}
     <div class="control">
         <div class="tags has-addons">
-            <a class="tag is-warning" href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
-            <span class="tag">{{ .Count }}</span>
+            <a class="tag is-warning {{ if and (gt .Count 5) (le .Count 10) }}is-medium{{ else if gt .Count 10 }}is-large{{ end }}" href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
+            <span class="tag is-warning is-light {{ if and (gt .Count 5) (le .Count 10) }}is-medium{{ else if gt .Count 10 }}is-large{{ end }}">{{ .Count }}</span>
         </div>
     </div>
         {{ else if eq $hashCode 4 }}
     <div class="control">
         <div class="tags has-addons">
-            <a class="tag is-danger" href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
-            <span class="tag">{{ .Count }}</span>
+            <a class="tag is-danger {{ if and (gt .Count 5) (le .Count 10) }}is-medium{{ else if gt .Count 10 }}is-large{{ end }}" href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
+            <span class="tag is-danger is-light {{ if and (gt .Count 5) (le .Count 10) }}is-medium{{ else if gt .Count 10 }}is-large{{ end }}">{{ .Count }}</span>
         </div>
     </div>
         {{ end}}

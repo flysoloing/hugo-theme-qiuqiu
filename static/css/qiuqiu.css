@@ -2634,6 +2634,9 @@ a.tag:hover {
 .field.is-grouped.is-grouped-multiline {
   flex-wrap: wrap;
 }
+.field.is-grouped.is-grouped-multiline.is-grouped-multiline-centered {
+  align-items: center;
+}
 .field.is-grouped.is-grouped-multiline > .control:last-child, .field.is-grouped.is-grouped-multiline > .control:not(:last-child) {
   margin-bottom: 0.75rem;
 }
