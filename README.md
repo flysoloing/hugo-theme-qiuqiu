@@ -88,8 +88,10 @@
 - [x] 将标题格式从之前的“Site Title | Page Title”改为“Page Title - Site Title”
 - [x] SEO，增加百度/Google等搜索引擎的收录
 - [x] fontawesome实在太慢，准备用本地引用方式替换线上引用
-- [x] 之前使用的fontawesome是5.15.4版本，计划升级为6.2.1版本
+- [x] 之前使用的fontawesome是5.15.4版本，当前版本为6.2.1版本
 - [ ] 增加阅读次数统计，阅读排行列表
 - [x] 图片上传时增加水印，基于PicGo的水印插件实现，watermark
 - [ ] 文章底部标签模式更换为breadcrumb格式
 - [x] 标签云展示优化，根据每个标签的数值，分为3档，is-normal，is-medium和is-large
+- [ ] copyright年份改为实时动态展示？
+- [x] 增加自定义站点统计脚本，包括站点PV和文章PV展示
