@@ -45,6 +45,12 @@
 
     //根据pathname判断是首页（包括分页），归档页，分类页（包括分类详情页），标签页（包括标签详情页），关于页，简历页还是404页面
     function buildReqData(url, pathname) {
+        if(!url || url.length < 1 || !pathname || pathname.length < 1) {
+            return null;
+        }
+        if(url.includes('/#')) {
+            url = url.substring(0, url.indexOf('#'));
+        }
         let reqData = {};
         let urls = [];
         reqData.countType = '10';
@@ -76,6 +82,7 @@
     //发送HTTP请求
     async function req(reqDataStr) {
         const url = 'https://pv.crudman.cn';
+        //const url = 'http://127.0.0.1:8787';
         let reqInit = {
             method: 'PUT',
             mode: 'cors',
