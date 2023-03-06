@@ -55,8 +55,10 @@
             本文最后更新于 {{ .Lastmod.Format "2006-01-02 15:04:05" }}
         </p>
         {{ end }}
+        <div class="main">
         {{ .Content }}
         <p>&nbsp;</p>
+        </div>
     </div>
     {{ if .Params.categories }}
     <div>
