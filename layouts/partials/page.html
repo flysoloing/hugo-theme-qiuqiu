@@ -55,6 +55,14 @@
             本文最后更新于 {{ .Lastmod.Format "2006-01-02 15:04:05" }}
         </p>
         {{ end }}
+        {{ if .Params.hasAISupport }}
+        <p class="notification is-no-padding is-info is-light">
+            <span class="icon">
+                <i class="fas fa-robot"></i>
+            </span>
+            本文由AI辅助创作，包含部分或全部文字、图像、音频和视频等信息
+        </p>
+        {{ end }}
         <div class="main">
         {{ .Content }}
         <p>&nbsp;</p>
